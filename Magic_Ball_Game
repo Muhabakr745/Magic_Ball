@@ -1,0 +1,49 @@
+import random
+
+
+def get_answers():
+    """Return a list of magic 8-ball answers."""
+    answers = [
+        "It is certain", "It is decidedly so", "Without a doubt", "Yes, definitely", "You may rely on it",
+        "As I see it, yes", "Most likely", "Outlook good", "Signs point to yes", "Yes",
+        "Reply hazy, try again", "Ask again later", "Better not tell you now", "Cannot predict now",
+        "Concentrate and ask again", "Don't count on it", "My reply is no", "My sources say no",
+        "Outlook not so good", "Very doubtful"
+    ]
+    return answers
+
+
+def say_hello():
+    """Greet the user and ask for their name."""
+    print("Welcome to the Mystical Magic 8-Ball! I hold the secrets to your questions.")
+    name = input("What's your name, seeker of mysteries? ")
+    print(f"Greetings, {name}!")
+
+
+def get_user_question():
+    """Get user's question."""
+    return input("Speak thy question and unravel the enigma: ")
+
+
+def get_magic_8_ball_response():
+    """Generate a mysterious magic 8-ball response."""
+    return random.choice(get_answers())
+
+
+def play_again():
+    """Ask if the user wants to play again."""
+    return input("Dare you seek more answers from the mystical realm? (Yes/No): ").lower().startswith("y")
+
+
+if __name__ == "__main__":
+    say_hello()
+
+    while True:
+        user_question = get_user_question()
+        print("The mystical forces are awakening...")
+        print("The ancient spirits whisper their response...")
+        print(get_magic_8_ball_response())
+
+        if not play_again():
+            print("Fare thee well, and may your future be cloaked in intrigue!")
+            break
